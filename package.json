@@ -1,6 +1,6 @@
 {
   "name": "package-json-lint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "What is says on the tin. A lint tool for your package.json.",
   "scripts": {
     "test": "mocha -R spec test/*"
