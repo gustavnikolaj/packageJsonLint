@@ -1,5 +1,5 @@
 {
-  "name": "packageJsonLint",
+  "name": "package-json-lint",
   "version": "0.0.1",
   "description": "What is says on the tin. A lint tool for your package.json.",
   "scripts": {
