@@ -1,0 +1,34 @@
+#!/usr/bin/env node
+
+var opts = require('nomnom').parse();
+var fs = require('fs');
+var PackageJsonLint = require('../lib/PackageJsonLint');
+
+var packageJsonLint = new PackageJsonLint();
+
+// Take the first non-flag argument passed or fallback to
+// the default value package.json
+var file = opts._[0] || 'package.json';
+
+// Read contents of file and exit if it does not exist.
+try {
+    var packageJsonContent = fs.readFileSync(file);
+} catch (e) {
+    packageJsonLint.exit('File not found:', file);
+}
+
+// Check if it's valid json
+try {
+    packageJsonLint.packageDescription = JSON.parse(packageJsonContent);
+} catch (e) {
+    packageJsonLint.exit(file + ' is not valid JSON.');
+    process.exit(1);
+}
+
+// Run checks
+packageJsonLint
+    .sortedAlphabetically('dependencies')
+    .sortedAlphabetically('devDependencies')
+    .absoluteVersions('dependencies')
+    .absoluteVersions('devDependencies')
+    .run();
