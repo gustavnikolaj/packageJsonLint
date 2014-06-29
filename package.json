@@ -9,15 +9,15 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "mocha": "=1.20.1",
-    "unexpected": "=3.2.2"
+    "sinon": "=1.10.2",
+    "unexpected": "=3.2.2",
+    "unexpected-sinon": "=3.0.2"
   },
   "directories": {
     "bin": "./bin"
   },
   "dependencies": {
     "chalk": "=0.4.0",
-    "nomnom": "=1.8.0",
-    "sinon": "=1.10.2",
-    "unexpected-sinon": "=3.0.2"
+    "nomnom": "=1.8.0"
   }
 }
